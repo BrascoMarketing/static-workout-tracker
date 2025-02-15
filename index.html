@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Today's Workout</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="background-texture"></div>
+    <div class="top-border"></div>
+    <div class="main-content">
+        <h1 id="workout-title"></h1>  <!-- This is now separate from the container -->
+        
+        <div class="week-quick-links">
+            <ul>
+                <li><a href="index.html?day=Sunday">Sunday</a></li>
+                <li><a href="index.html?day=Monday">Monday</a></li>
+                <li><a href="index.html?day=Tuesday">Tuesday</a></li>
+                <li><a href="index.html?day=Wednesday">Wednesday</a></li>
+                <li><a href="index.html?day=Thursday">Thursday</a></li>
+                <li><a href="index.html?day=Friday">Friday</a></li>
+                <li><a href="index.html?day=Saturday">Saturday</a></li>
+            </ul>
+        </div>
+
+        <div id="workout-container"></div>
+
+        <div class="link-container">
+            <a href="index.html" class="workout-link primary">Today's Workout</a>
+            <a href="schedule.html" class="workout-link primary">View Full Schedule</a> 
+            <button id="reset-progress">Reset Checklist</button>       
+        </div>         
+        
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>

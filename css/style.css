@@ -1,0 +1,669 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+/* General Page Styling */
+body {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    font-family: "Open Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;    
+    text-align: center;
+    background-color: #1a1a2e;
+    color: #f7f7f7;    
+    margin: 0;
+    border-top: 30px #16213e solid;
+    border-bottom: 30px #16213e solid;
+}
+.top-border {
+    border-top: #0f3460 2px solid;
+    margin-bottom: 36px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#background-texture {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../img/bo-play.png);
+    z-index: -1;
+    opacity: .05;
+}
+
+.main-content {
+    min-height: calc(100vh - 100px);
+}
+
+/* Main Titles */
+h1,
+h2 {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #e97b45;
+    text-transform: uppercase;
+    font-size: 2em;
+    margin: 0px 0 15px 0;
+    letter-spacing: 2px;
+}
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Flexbox Layout for Workout Sections */
+#workout-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual Workout Sections */
+.workout-section {
+    background: #16213e;
+    border: 2px solid #0f3460;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 250px;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.workout-section.component-push,
+.workout-section.component-pull,
+.workout-section.component-legs {   
+    max-width: 800px;
+}
+
+/* Add slight hover effect */
+.workout-section:hover {
+    border-color: #e97b45;
+}
+
+/* Section Titles */
+h3 {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: #49ed78;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    margin-top: 18px;
+}
+
+/* Updated Exercise Header */
+.exercise-header {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1.5fr 0.5fr; /* Removed sets column, expanded reps */
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid #e97b45;
+    text-align: center;
+}
+.exercise-header span:nth-child(1) {
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Updated Exercise Row */
+.exercise-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 0.5fr; /* Matches header layout */
+    align-items: center;
+    padding: 8px 0;
+    gap: 30px;
+}
+
+/* Wider Reps Input */
+input.reps-input {
+    width: 100%; /* Full width to accommodate multiple reps */
+    padding: 6px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #0f3460;
+    background: #f7f7f7;
+    color: #1a1a2e;
+}
+
+/* Exercise Name */
+.exercise-name {
+    font-weight: bold;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Input Fields */
+input[type="number"] {
+    width: 95%; /* Slightly wider */
+    padding: 6px;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #0f3460;
+    background: #f7f7f7;
+    color: #1a1a2e;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+/* Checkbox style */
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin: auto;
+    transition: transform .2s ease;
+    transform: scale(1);
+}
+input[type="checkbox"]:hover {
+    transform: scale(1.5);
+}
+
+/* Reset Button Styling */
+#reset-progress {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #0f3460;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    min-width: 260px;
+    opacity: 0.3;
+}
+
+#reset-progress:hover {
+    background-color: #e97b45;
+    opacity: 1;
+}
+
+/* Grayed-out effect for completed exercises */
+li:has(.exercise-container.completed) {
+    background-color: rgba(0, 255, 0, 0.3); /* Light green */
+    border-left: 4px solid #4CAF50; /* Green accent */
+    opacity: 0.3;
+}
+
+/* Ensure inputs in completed rows also appear faded */
+.exercise-container.completed input {
+    background-color: #333;
+    color: #aaa;
+    border-color: #666;
+    pointer-events: none;
+}
+
+/* Make exercise list items align properly */
+.workout-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workout-section li {
+    border-bottom: 1px solid #0f3460;
+    padding: 10px 5px;
+}
+
+.workout-section li:last-child {
+    border-bottom: none;
+}
+
+/* Custom CSS for each .workout-section */
+.workout-section.component-hiit ul li .exercise-container,
+.workout-section.component-core ul li .exercise-container,
+.workout-section.component-everyday ul li .exercise-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+.workout-section.component-hiit ul li .exercise-name,
+.workout-section.component-core ul li .exercise-name,
+.workout-section.component-everyday ul li .exercise-name {
+    flex-basis: 80%;
+}
+
+/* Checked Checkbox Effects */
+input[type="checkbox"]:checked {
+    background-color: #00c853; /* Bright Green */
+    border: 2px solid #00e676;
+    box-shadow: 0 0 8px #00e676;
+    transition: all 0.2s ease-in-out;
+}
+input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #00c853;
+    border-color: #00e676;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: zoomIn 0.2s forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+input[type="checkbox"]:checked {
+    background: #e97b45;
+    border-color: #ff5722;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #workout-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .exercise-header, .exercise-container {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+}
+
+/* Weekly Schedule Page - Single Row Layout */
+#weekly-schedule {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr)); /* Prevents overflow */
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#weekly-schedule h2 {
+    font-size: 1em;
+}
+#weekly-schedule h2 a {
+    text-decoration: none;
+    color: #49ed78;
+    transition: color .2s ease;
+}
+#weekly-schedule h2 a:hover {   
+    color: #0f3460;
+}
+
+/* Individual Day Box */
+.workout-summary {
+    background: #16213e;
+    border: 2px solid #0f3460;
+    padding: 10px; /* Reduce padding */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Each box evenly fills its column */
+}
+
+/* Title for Each Day */
+.workout-summary h2 {
+    color: #e97b45;
+    font-size: 1.2em; /* Reduce font size */
+    margin-bottom: 5px;
+}
+
+/* List of Components (Push, Pull, etc.) */
+.workout-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.workout-summary li {
+    background: #0f3460;
+    color: #f7f7f7;
+    padding: 5px;
+    margin: 5px 0 10px 0;
+    border-radius: 4px;
+    font-size: 0.9em; /* Reduce font size */
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    #weekly-schedule {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #weekly-schedule {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    #weekly-schedule {
+        grid-template-columns: 1fr; /* Stack days vertically for very small screens */
+    }
+}
+
+/* Highlight the current day */
+.highlight-today {
+    background: #e97b45;
+    color: white;
+    border: 3px solid white;
+    animation: pulse 1s infinite alternate;
+}
+.highlight-today h2 {   
+    color: #fff !important;
+}
+
+/* Subtle pulsing effect */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Workout Breakdown (Bottom Section) */
+#component-breakdown {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0px;
+}
+
+
+/* Component Breakdown Section */
+.component-summary {
+    background: #0f3460;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    max-width: 800px;    
+    flex-basis: 17%;
+    margin: 15px;
+}
+
+/* Titles */
+.workout-summary h2, .component-summary h2 {
+    color: #49ed78;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+/* Component names */
+.workout-summary ul, .component-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Exercise list under components */
+.component-summary ul li {
+    background: #1a1a2e;
+    color: #f7f7f7;
+    padding: 10px 15px;
+    margin: 5px 0 15px 0;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Highlight the current day */
+.highlight-today {
+    background: #e97b45;
+    color: white;
+    border: 3px solid #fae5da;
+    animation: pulse-shadow 0.7s infinite alternate;
+    box-shadow: 1px 4px 20px rgba(233, 123, 69, 0.5);
+    z-index: 15;
+}
+
+/* Pulsing box shadow animation */
+@keyframes pulse-shadow {
+    0% { box-shadow: 1px 4px 20px rgba(233, 123, 69, 0.5); }
+    100% { box-shadow: 1px 4px 40px rgba(233, 123, 69, 0.9); }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    #weekly-schedule {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #weekly-schedule {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #weekly-schedule {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* General Link Styling */
+a.workout-link {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Primary Button Style */
+a.workout-link.primary {
+    background: #49ed78;
+    color: white;
+    border: none;
+}
+
+/* Hover Effect */
+a.workout-link.primary:hover {
+    background: #e97b45;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Secondary Button Style */
+a.workout-link.secondary {
+    background: #49ed78;
+    color: #f7f7f7;
+}
+
+/* Hover Effect for Secondary Button */
+a.workout-link.secondary:hover {
+    background: #0f3460;
+    color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Center Links */
+.link-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.component-summary.component-push {
+    order: 1;
+}
+.component-summary.component-core {
+    order: 5;
+}
+.component-summary.component-pull {
+    order: 2;
+}
+.component-summary.component-hiit {
+    order: 4;
+}
+.component-summary.component-legs {
+    order: 3;
+}
+/* Hide all workout summaries and component summaries initially */
+.workout-summary, .component-summary {
+    opacity: 0;
+    transform: translateY(20px); /* Keep them slightly lower */
+}
+/* Hide workout sections initially */
+.workout-section {
+    opacity: 0;
+    transform: translateY(20px); /* Start lower */
+}
+
+.rest-day-container {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 2em 4em;
+    background: #16213e;
+    border: 2px solid #0f3460;
+    margin-top: 20px;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in-out;
+    max-width: 990px;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.recovery-tip {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #989898;
+    margin-top: 15px;
+    display: inline-block;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+body.day-sunday #reset-progress {
+    display: none;
+}
+
+/* Rest Day Summary Styles */
+.workout-summary.component-sunday {
+    background: #fceabb;
+    background: linear-gradient(to right, #fceabb, #f8b500);
+    border: 2px solid #e1cd9a;
+}
+.workout-summary.component-sunday h2 a {
+    color: #0f3460 !important;
+}
+.workout-summary.component-sunday h2 a:hover {
+    color: #2965ae !important;
+}
+.workout-summary.component-sunday li {
+    font-family: "Open Sans", serif;
+    color: #fff;
+}
+
+.week-quick-links {
+    max-width: 990px;
+    margin: 36px auto;
+}
+
+.week-quick-links ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+.week-quick-links li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.week-quick-links li a {
+    display: block;
+    text-decoration: none;
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    background: #0f3460;
+    border: 2px solid #2965ae;
+    color: #f7f7f7;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border-radius: 4px;
+    min-width: 130px;
+    transition: all .2s ease;
+}
+.week-quick-links li a:hover {    
+    background: #e97b45;
+    color: #f7f7f7;
+}
+.week-quick-links a.current-day {
+    pointer-events: none; /* Disable clicking */
+    opacity: 0.25; /* Reduce visibility */
+    font-weight: bold; /* Make it stand out */
+    text-decoration: none; /* Remove underline */
+    color: #aaa; /* Change text color */
+}
