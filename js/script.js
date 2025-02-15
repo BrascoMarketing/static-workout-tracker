@@ -289,14 +289,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 localStorage.setItem(today, JSON.stringify(savedProgress));
             
                 if (isCompleted) {
-                    inputContainer.classList.add("completed");
-            
-                    // 🎉 CONFETTI EXPLOSION! 🚀
-                    confetti({
-                        particleCount: 100,
-                        spread: 70,
-                        origin: { y: 0.6 },
-                    });
+                    inputContainer.classList.add("completed");                    
+                        confetti({
+                            particleCount: 100,
+                            spread: 70,
+                            origin: { y: 0.6 },
+                        });
                 } else {
                     inputContainer.classList.remove("completed");
                 }
@@ -430,6 +428,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }, index * 200); // Stagger delay of 200ms
         });
     }, 100); // Ensure elements are loaded before animating
+    
 
 });
 
