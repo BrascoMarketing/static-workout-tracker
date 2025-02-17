@@ -139,6 +139,9 @@ input.reps-input {
     background: #0a1021;
     color: #fff;
 }
+input.reps-input:focus {    
+    background:#2965ae;
+}
 
 /* Exercise Name */
 .exercise-name {
