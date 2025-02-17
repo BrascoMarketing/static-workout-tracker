@@ -139,7 +139,8 @@ input.reps-input {
     background: #0a1021;
     color: #fff;
 }
-input.reps-input:focus {    
+input.reps-input:focus,
+input[type="number"]:focus {    
     background:#2965ae;
 }
 
