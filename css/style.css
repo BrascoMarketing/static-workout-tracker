@@ -141,7 +141,7 @@ input.reps-input {
 }
 input.reps-input:focus,
 input[type="number"]:focus {    
-    background:#2965ae;
+    background:#e97b45;
 }
 
 /* Exercise Name */
