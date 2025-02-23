@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     "Dumbbell Upper Chest Pullover (Elbows IN)",
                     "Tricep Extensions (Overhead/Skullcrushers)",
                     "Tricep Kickbacks (Face-Down on Incline Bench)",
-                    "One Arm Florida to Washington",
+                    "Florida to Washington (DBs & Bands)",
                     "Incline DB Press Smokeset",
                     "Tricep Smokeset",
                 ],
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     "Dumbbell Upper Chest Pullover (Elbows IN)",
                     "Tricep Extensions (Overhead/Skullcrushers)",
                     "Tricep Kickbacks (Face-Down on Incline Bench)",
-                    "One Arm Florida to Washington",
+                    "Florida to Washington (DBs & Bands)",
                     "Incline DB Press Smokeset",
                     "Tricep Smokeset"
                 ],
