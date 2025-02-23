@@ -57,9 +57,24 @@ h2 {
     letter-spacing: 2px;
 }
 h1 {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
-
+h2.workout-phase {
+    margin-bottom: 30px;
+    display: none;
+    font-size: 1.2em;
+    color: #49ed78;
+}
+body.day-monday h2.workout-phase.overload,
+body.day-tuesday h2.workout-phase.overload,
+body.day-wedenesday h2.workout-phase.overload {
+    display: block;
+}
+body.day-thursday h2.workout-phase.hypertrophy, 
+body.day-friday h2.workout-phase.hypertrophy,
+body.day-saturday h2.workout-phase.hypertrophy {
+    display: block;
+}
 /* Flexbox Layout for Workout Sections */
 #workout-container {
     display: flex;
