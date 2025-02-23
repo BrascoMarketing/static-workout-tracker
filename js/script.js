@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.title = today + "'s Agenda";
 
     let workout = workoutData[today];
-    document.getElementById("workout-title").textContent = `${today}'s Workout`;
+    document.getElementById("workout-title").textContent = `${today}'s Agenda`;
 
     let container = document.getElementById("workout-container");
     container.innerHTML = "";
