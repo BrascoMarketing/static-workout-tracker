@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add the day of the week as a class to the <body> tag (lowercased for consistency)
     document.body.classList.add(`day-${today.toLowerCase()}`);
-    document.title = today + "'s Workout";
+    document.title = today + "'s Agenda";
 
     let workout = workoutData[today];
     document.getElementById("workout-title").textContent = `${today}'s Workout`;
