@@ -67,7 +67,7 @@ h2.workout-phase {
 }
 body.day-monday h2.workout-phase.overload,
 body.day-tuesday h2.workout-phase.overload,
-body.day-wedenesday h2.workout-phase.overload {
+body.day-wednesday h2.workout-phase.overload {
     display: block;
 }
 body.day-thursday h2.workout-phase.hypertrophy, 
